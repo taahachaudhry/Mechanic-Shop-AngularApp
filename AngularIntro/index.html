@@ -1,9 +1,34 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MechanicShop">
 <head>
     <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-controller="MechanicShopController">
+    <div class="container">
+        <h2>National Mechanic Shop</h2>
+        <input class="input-sm" type="text" ng-model="make" placeholder="Make" />
+        <input class="input-sm" type="text" ng-model="model" placeholder="Model" />
+        <input class="input-sm" type="text" ng-model="year" placeholder="Year" />
+        <button class="btn btn-success btn-sm" ng-click="addCar()">Submit</button><br />
+    </div><br />
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+            </tr>
+            <tr ng-repeat="car in cars">
+                <td>{{car.make}}</td>
+                <td>{{car.model}}</td>
+                <td>{{car.year}}</td>
+                <td><button class="btn btn-danger btn-sm" ng-click="removeCar($index)">Remove</button></td>
+            </tr>
+        </table>
+    </div>
+    <script src="Scripts/jquery-1.9.0.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/_script.js"></script>
 </body>
