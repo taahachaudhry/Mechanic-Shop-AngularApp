@@ -39,7 +39,11 @@
         </table>
     </div>
     <div ng-controller="DetailsController" class="container">
-
+        <button class="btn btn-danger btn-sm" ng-click="prev()">Previous</button>
+        <button class="btn btn-success btn-sm" ng-click="next()">Next</button>
+        <h3>{{car.year}} {{car.make}} {{car.model}}</h3>
+        <img ng-src="{{car.image}}" />
+        <p>{{car.problem}}</p>
     </div>
     <script src="Scripts/jquery-1.9.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>

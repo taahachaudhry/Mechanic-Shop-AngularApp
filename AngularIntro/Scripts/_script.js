@@ -11,6 +11,8 @@ MechanicShop.controller('TableController', function (CarFactory, $scope) {
         car.model = $scope.model;
         car.year = $scope.year;
         car.fixed = false;
+        car.problem = $scope.problem;
+        car.image = $scope.image;
         CarFactory.push(car);
         $scope.make = '';
         $scope.model = '';
@@ -21,6 +23,22 @@ MechanicShop.controller('TableController', function (CarFactory, $scope) {
         $scope.cars.splice(index, 1);
     }
 });
-MechanicShop.controller('DetailsController', function ($scope) {
-
+MechanicShop.controller('DetailsController', function (CarFactory, $scope) {
+    $scope.currentIndex = 0;
+    $scope.car = CarFactory[$scope.currentIndex];
+    $scope.prev = function () {
+        $scope.currentIndex -= 1;
+        if ($scope.currentIndex < 0) {
+            $scope.currentIndex = CarFactory.length - 1;
+            
+        }
+        $scope.car = CarFactory[$scope.currentIndex];
+    };
+    $scope.next = function () {
+        $scope.currentIndex += 1;
+        if ($scope.currentIndex > CarFactory.length - 1) {
+            $scope.currentIndex = 0;
+        }
+        $scope.car = CarFactory[$scope.currentIndex];
+    }
 })
