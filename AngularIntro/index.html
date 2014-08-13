@@ -1,57 +1,17 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="MechanicShop">
 <head>
-    <title></title>
+    <title>Mechanic Shop</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
         <h2>National Mechanic Shop</h2>
     </div><br />
-    <div ng-controller="TableController" class="container">
-        <input class="input-sm" type="text" ng-model="make" placeholder="Make" />
-        <input class="input-sm" type="text" ng-model="model" placeholder="Model" />
-        <input class="input-sm" type="text" ng-model="year" placeholder="Year" />
-        <button class="btn btn-success btn-sm" ng-click="addCar()">Submit</button><br />
-        <br /><table class="table table-striped">
-            <tr>
-                <th>Make</th>
-                <th>Model</th>
-                <th>Year</th>
-            </tr>
-            <tr ng-repeat="car in cars">
-                <td ng-hide="editing">{{car.make}}</td>
-                <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.make" /></td>
-                <td ng-hide="editing">{{car.model}}</td>
-                <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.model" /></td>
-                <td ng-hide="editing">{{car.year}}</td>
-                <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.year" /></td>
-                <td ng-show="editing">
-                    <select ng-model="car.fixed">
-                        <option value="true">True</option>
-                        <option value="false">False</option>
-                    </select>
-                </td>
-                <td ng-hide="editing"><button class="btn btn-warning btn-sm" ng-click="editing='true'">Edit</button></td>
-                <td ng-show="editing"><button class="btn btn-success btn-sm" ng-click="editing='false'">Save</button></td>
-                <td><button class="btn btn-danger btn-sm" ng-click="removeCar(car)">Remove</button></td>
-            </tr>
-        </table>
-    </div>
-    <div ng-controller="DetailsController" class="container">
-        <button class="btn btn-primary btn-sm" ng-click="prev()">Previous</button>
-        <button class="btn btn-primary btn-sm" ng-click="next()">Next</button>
-        <button ng-hide="editing" class="btn btn-warning btn-sm" ng-click="editing='true'">Edit</button>
-        <button ng-show="editing" class="btn btn-success btn-sm" ng-click="editing='false'">Save</button>
-        <h3>{{car.year}} {{car.make}} {{car.model}}</h3>
-        <img class='img-thumbnail img-responsive' style='height:200px; width:300px;' ng-hide="editing" ng-src="{{car.image}}" /><br />
-        <input class="input-sm" type="text" ng-show="editing" ng-model="car.image" placeholder="Image" />
-        <p ng-hide="editing">{{car.problem}}</p>
-        <textarea class="form-control" ng-show="editing" ng-model="car.problem" placeholder="Enter Problem"></textarea><br />     
-    </div>
     <script src="Scripts/jquery-1.9.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
     <script src="Scripts/_script.js"></script>
 </body>
 </html>
