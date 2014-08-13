@@ -4,16 +4,16 @@
     <title></title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body ng-controller="MechanicShopController">
+<body>
     <div class="container">
         <h2>National Mechanic Shop</h2>
+    </div><br />
+    <div ng-controller="TableController" class="container">
         <input class="input-sm" type="text" ng-model="make" placeholder="Make" />
         <input class="input-sm" type="text" ng-model="model" placeholder="Model" />
         <input class="input-sm" type="text" ng-model="year" placeholder="Year" />
         <button class="btn btn-success btn-sm" ng-click="addCar()">Submit</button><br />
-    </div><br />
-    <div class="container">
-        <table class="table table-striped">
+        <br /><table class="table table-striped">
             <tr>
                 <th>Make</th>
                 <th>Model</th>
@@ -21,7 +21,7 @@
             </tr>
             <tr ng-repeat="car in cars">
                 <td ng-hide="editing">{{car.make}}</td>
-                <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.make"/></td>
+                <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.make" /></td>
                 <td ng-hide="editing">{{car.model}}</td>
                 <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.model" /></td>
                 <td ng-hide="editing">{{car.year}}</td>
@@ -37,6 +37,9 @@
                 <td><button class="btn btn-danger btn-sm" ng-click="removeCar(car)">Remove</button></td>
             </tr>
         </table>
+    </div>
+    <div ng-controller="DetailsController" class="container">
+
     </div>
     <script src="Scripts/jquery-1.9.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
