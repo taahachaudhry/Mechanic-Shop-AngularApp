@@ -39,11 +39,15 @@
         </table>
     </div>
     <div ng-controller="DetailsController" class="container">
-        <button class="btn btn-danger btn-sm" ng-click="prev()">Previous</button>
-        <button class="btn btn-success btn-sm" ng-click="next()">Next</button>
+        <button class="btn btn-primary btn-sm" ng-click="prev()">Previous</button>
+        <button class="btn btn-primary btn-sm" ng-click="next()">Next</button>
+        <button ng-hide="editing" class="btn btn-warning btn-sm" ng-click="editing='true'">Edit</button>
+        <button ng-show="editing" class="btn btn-success btn-sm" ng-click="editing='false'">Save</button>
         <h3>{{car.year}} {{car.make}} {{car.model}}</h3>
-        <img ng-src="{{car.image}}" />
-        <p>{{car.problem}}</p>
+        <img class='img-thumbnail img-responsive' style='height:200px; width:300px;' ng-hide="editing" ng-src="{{car.image}}" /><br />
+        <input class="input-sm" type="text" ng-show="editing" ng-model="car.image" placeholder="Image" />
+        <p ng-hide="editing">{{car.problem}}</p>
+        <textarea class="form-control" ng-show="editing" ng-model="car.problem" placeholder="Enter Problem"></textarea><br />     
     </div>
     <script src="Scripts/jquery-1.9.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
