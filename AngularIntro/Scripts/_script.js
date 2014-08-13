@@ -13,4 +13,7 @@ MechanicShop.controller('MechanicShopController', function ($scope) {
         $scope.model = ''
         $scope.year = ''
     }
+    $scope.removeCar = function (index) {
+        $scope.cars.splice(index, 1);
+    }
 });
