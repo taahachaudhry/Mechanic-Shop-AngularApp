@@ -1,5 +1,22 @@
-﻿var MechanicShop = angular.module('MechanicShop', []);
+﻿var MechanicShop = angular.module('MechanicShop', ['ngRoute']);
 
+MechanicShop.config(function ($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: '/Views/table.html',
+        controller: 'TableController'
+    })
+    .when('/add', {
+        templateUrl: '/Views/add.html',
+        controller: 'AddController'
+    })
+    .when('/details/:id', {
+        templateUrl: 'Views/details.html',
+        controller: 'DetailsController'
+    })
+    .otherwise({
+        templateUrl: 'Views/404.html'
+    })
+})
 MechanicShop.factory('CarFactory', function () {
     return [{ "make": "BMW", "model": "330Ci", "year": "2009", "fixed": false }, { "make": "Honda", "model": "Accord", "year": "2013", "fixed": false }, { "make": "Tesla", "model": "ModelX", "year": "2013", "fixed": false }];
 })
