@@ -22,8 +22,16 @@ MechanicShop.factory('CarFactory', function () {
 })
 MechanicShop.controller('TableController', function (CarFactory, $scope) {
     $scope.cars = CarFactory;
+    $scope.removeCar = function (car) {
+        var index = $scope.cars.indexOf(car);
+        $scope.cars.splice(index, 1);
+    }
+});
+
+MechanicShop.controller('AddController', function (CarFactory, $scope) {
+    $scope.cars = CarFactory;
     $scope.addCar = function () {
-        var car = {};    
+        var car = {};
         car.make = $scope.make;
         car.model = $scope.model;
         car.year = $scope.year;
@@ -35,13 +43,7 @@ MechanicShop.controller('TableController', function (CarFactory, $scope) {
         $scope.model = '';
         $scope.year = '';
     }
-    $scope.removeCar = function (car) {
-        var index = $scope.cars.indexOf(car);
-        $scope.cars.splice(index, 1);
-    }
 });
-
-
 
 MechanicShop.controller('DetailsController', function (CarFactory, $scope) {
     $scope.currentIndex = 0;
