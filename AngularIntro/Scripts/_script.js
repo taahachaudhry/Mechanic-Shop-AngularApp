@@ -40,6 +40,9 @@ MechanicShop.controller('TableController', function (CarFactory, $scope) {
         $scope.cars.splice(index, 1);
     }
 });
+
+
+
 MechanicShop.controller('DetailsController', function (CarFactory, $scope) {
     $scope.currentIndex = 0;
     $scope.car = CarFactory[$scope.currentIndex];
