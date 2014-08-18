@@ -1,24 +1,9 @@
-﻿<br /><table class="table table-striped">
-    <tr>
-        <th>Make</th>
-        <th>Model</th>
-        <th>Year</th>
-    </tr>
-    <tr ng-repeat="car in cars">
-        <td ng-hide="editing">{{car.make}}</td>
-        <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.make" /></td>
-        <td ng-hide="editing">{{car.model}}</td>
-        <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.model" /></td>
-        <td ng-hide="editing">{{car.year}}</td>
-        <td ng-show="editing"><input class="input-sm" type="text" ng-model="car.year" /></td>
-        <td ng-show="editing">
-            <select ng-model="car.fixed">
-                <option value="true">True</option>
-                <option value="false">False</option>
-            </select>
-        </td>
-        <td ng-hide="editing"><button class="btn btn-warning btn-sm" ng-click="editing='true'">Edit</button></td>
-        <td ng-show="editing"><button class="btn btn-success btn-sm" ng-click="editing='false'">Save</button></td>
-        <td><button class="btn btn-danger btn-sm" ng-click="removeCar(car)">Remove</button></td>
-    </tr>
-</table>
+﻿<div class="container">
+    <h3>{{car.year}} {{car.make}} {{car.model}}</h3>
+    <img class='img-thumbnail img-responsive' style='height:200px; width:300px;' ng-hide="editing" ng-src="{{car.image}}" /><br />
+    <p ng-hide="editing">{{car.problem}}</p>
+    <input class="input-sm" type="text" ng-show="editing" ng-model="car.image" placeholder="Image" />
+    <textarea class="form-control" ng-show="editing" ng-model="car.problem" placeholder="Enter Problem"></textarea><br />   
+    <button ng-hide="editing" class="btn btn-warning btn-sm" ng-click="editing='true'">Edit</button>
+    <button ng-show="editing" class="btn btn-success btn-sm" ng-click="editing='false'">Save</button>
+</div>

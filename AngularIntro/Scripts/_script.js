@@ -10,7 +10,7 @@ MechanicShop.config(function ($routeProvider) {
         controller: 'AddController'
     })
     .when('/details/:id', {
-        templateUrl: 'Views/details.html',
+        templateUrl: '/Views/details.html',
         controller: 'DetailsController'
     })
     .otherwise({
@@ -42,11 +42,15 @@ MechanicShop.controller('AddController', function (CarFactory, $scope) {
         $scope.make = '';
         $scope.model = '';
         $scope.year = '';
+        $scope.image = '';
+        $scope.problem = '';
+
+        $location.path('details/' + CarFactory.indexOf(car));
     }
 });
 
-MechanicShop.controller('DetailsController', function (CarFactory, $scope) {
-    $scope.currentIndex = 0;
+MechanicShop.controller('DetailsController', function (CarFactory, $scope, $routeParams) {
+    $scope.currentIndex = $routeParams.id;
     $scope.car = CarFactory[$scope.currentIndex];
     $scope.prev = function () {
         $scope.currentIndex -= 1;
